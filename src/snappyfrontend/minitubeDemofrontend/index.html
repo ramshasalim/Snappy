@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minitube - Watch Videos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h2 class="logo">▶ Minitube</h2>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search videos..." />
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <button id="uploadBtn" class="upload-btn">+ Upload</button>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <button class="nav-item active" data-page="home">🏠 Home</button>
+        <button class="nav-item" data-page="trending">🔥 Trending</button>
+        <button class="nav-item" data-page="history">🕒 History</button>
+        <button class="nav-item" data-page="liked">❤️ Liked Videos</button>
+        <button class="nav-item" data-page="myvideos">📹 My Videos</button>
+      </aside>
+
+      <main class="content">
+        <section id="homePage">
+          <h2 id="pageTitle">Recommended Videos</h2>
+
+          <div class="categories">
+            <button class="category active" data-category="All">All</button>
+            <button class="category" data-category="Technology">
+              Technology
+            </button>
+            <button class="category" data-category="Music">Music</button>
+            <button class="category" data-category="Gaming">Gaming</button>
+            <button class="category" data-category="Education">
+              Education
+            </button>
+          </div>
+
+          <div id="videoGrid" class="video-grid"></div>
+        </section>
+
+        <section id="watchPage" class="hidden">
+          <button id="backBtn" class="back-btn">← Back to videos</button>
+
+          <div class="watch-layout">
+            <div class="player-section">
+              <video id="videoPlayer" controls></video>
+
+              <h2 id="watchTitle"></h2>
+
+              <div class="video-actions">
+                <span id="watchViews"></span>
+                <button id="likeBtn">♡ Like</button>
+                <button id="shareBtn">↗ Share</button>
+              </div>
+
+              <div class="description">
+                <h3 id="watchChannel"></h3>
+                <p id="watchDescription"></p>
+              </div>
+            </div>
+
+            <aside>
+              <h3>Related Videos</h3>
+              <div id="relatedVideos"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="uploadPage" class="hidden">
+          <h2>Upload a Video</h2>
+
+          <form id="uploadForm" class="upload-form">
+            <label>Video Title</label>
+            <input
+              id="videoTitle"
+              type="text"
+              placeholder="Enter video title"
+              required
+            />
+
+            <label>Channel Name</label>
+            <input
+              id="channelName"
+              type="text"
+              placeholder="Enter channel name"
+              required
+            />
+
+            <label>Description</label>
+            <textarea
+              id="videoDescription"
+              placeholder="Describe your video"
+            ></textarea>
+
+            <label>Category</label>
+            <select id="videoCategory">
+              <option>Technology</option>
+              <option>Music</option>
+              <option>Gaming</option>
+              <option>Education</option>
+            </select>
+
+            <label>Select Video</label>
+            <input id="videoFile" type="file" accept="video/*" required />
+
+            <button type="submit">Publish Video</button>
+            <p id="uploadMessage"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+```
