@@ -66,6 +66,41 @@ const roomSchema = new Schema(
       min: 1,
       max: 3,
     },
+    challengeAssignments: [
+      {
+        round: {
+          type: Number,
+          required: true,
+        },
+
+        player: {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+          required: true,
+        },
+
+        challenge: {
+          type: Schema.Types.ObjectId,
+          ref: "Challenge",
+          required: true,
+        },
+      },
+    ],
+    roundStartedAt: {
+      type: Date,
+      default: null,
+    },
+
+    roundEndsAt: {
+      type: Date,
+      default: null,
+    },
+
+    roundStatus: {
+      type: String,
+      enum: ["waiting", "active", "completed"],
+      default: "waiting",
+    },
   },
   {
     timestamps: true,
